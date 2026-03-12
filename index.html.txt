@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>sansalecunglin</title>
+
+<style>
+
+body{
+font-family: Arial, sans-serif;
+background: linear-gradient(135deg,#ffd6e7,#fff0f6);
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+margin:0;
+}
+
+.card{
+background:white;
+padding:35px;
+width:360px;
+border-radius:22px;
+box-shadow:0 15px 35px rgba(0,0,0,0.12);
+text-align:center;
+}
+
+.logo{
+font-size:28px;
+font-weight:bold;
+color:#ff5fa2;
+margin-bottom:5px;
+}
+
+.subtitle{
+font-size:13px;
+color:#888;
+margin-bottom:25px;
+}
+
+input{
+width:100%;
+padding:12px;
+border-radius:10px;
+border:1px solid #ddd;
+margin-top:10px;
+font-size:14px;
+}
+
+button{
+width:100%;
+padding:12px;
+border:none;
+border-radius:10px;
+background:#ff7fb5;
+color:white;
+font-weight:bold;
+margin-top:12px;
+cursor:pointer;
+}
+
+button:hover{
+background:#ff5fa2;
+}
+
+.copy{
+background:#ffa1c7;
+}
+
+.footer{
+margin-top:20px;
+font-size:12px;
+color:#aaa;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+<div class="logo">🎀 sansalecunglin</div>
+<div class="subtitle">Đổi link Shopee nhận voucher</div>
+
+<input id="inputLink" placeholder="Dán link Shopee vào đây">
+
+<button onclick="createLink()">Tạo link</button>
+
+<input id="resultLink" placeholder="Link mới sẽ hiện ở đây">
+
+<button class="copy" onclick="copyLink()">Sao chép link</button>
+
+<div class="footer">
+Made with 💗 by sansalecunglin
+</div>
+
+</div>
+
+<script>
+
+function createLink(){
+
+let link=document.getElementById("inputLink").value
+
+if(link==""){
+alert("Bạn chưa dán link Shopee")
+return
+}
+
+let affiliateID="17306220125"
+
+let newLink="https://s.shopee.vn/?af="+affiliateID+"&url="+encodeURIComponent(link)
+
+document.getElementById("resultLink").value=newLink
+
+}
+
+function copyLink(){
+
+let copyText=document.getElementById("resultLink")
+
+copyText.select()
+document.execCommand("copy")
+
+alert("Đã sao chép link!")
+
+}
+
+</script>
+
+</body>
+</html>
